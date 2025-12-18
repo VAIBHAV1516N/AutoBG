@@ -2,6 +2,7 @@ import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
 import connectDB from './configs/mongodb.js';
+import imageRouter from './routes/imageRoutes.js';
 import userRouter from './routes/userRoutes.js';
 
 //app config
@@ -20,6 +21,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/user', userRouter);
+app.use('/api/image', imageRouter);
 
 //listen
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
